@@ -7,6 +7,8 @@ def positivecal(listx):
         if i == "]":
             listy.append(int(buff))
         if i == "," or i == " ":
+            if buff == "":
+                continue
             listy.append(int(buff))
             buff = ""
             continue
