@@ -35,6 +35,18 @@ def numsuffix(num):
         nS = str(num)+"th"
     return nS
 
+def inptverif(txt):
+    # checking for blank inputs
+    verif = False
+    while(not verif):
+        inpt = input(f"\t{str(txt)}:\t")
+        if inpt == "":
+            print("Entry cannot be blank, Please enter valid info.")
+            verif = False
+        else:
+            verif = True
+            return inpt
+
 
 if __name__ == '__main__':
     # Taking entries
@@ -43,10 +55,10 @@ if __name__ == '__main__':
     while(entr):
         # filling info
         print(f"\nEnter {numsuffix(int(n))} student's following information:")
-        s_name = input("\tName:\t\t")
-        s_age = input("\tAge:\t\t")
-        s_ph = input("\tPhone number:\t")
-        s_email = input("\tEmail ID:\t")
+        s_name = inptverif("Name\t")
+        s_age = inptverif("Age\t")
+        s_ph = inptverif("Phone number")
+        s_email = inptverif("Email ID")
 
         info_list = [s_name, s_age, s_ph, s_email]  # listing info
 
