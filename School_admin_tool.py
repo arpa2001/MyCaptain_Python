@@ -39,7 +39,7 @@ def inptverif(txt):
     # checking for blank inputs
     verif = False
     while(not verif):
-        inpt = input(f"\t{str(txt)}:\t")
+        inpt = input(f"\t{str(txt)}\t: ")
         if inpt == "":
             print("Entry cannot be blank, Please enter valid info.")
             verif = False
@@ -56,7 +56,14 @@ if __name__ == '__main__':
         # filling info
         print(f"\nEnter {numsuffix(int(n))} student's following information:")
         s_name = inptverif("Name\t")
-        s_age = inptverif("Age\t")
+        typ_chk = False
+        while(not typ_chk):
+            try:
+                s_age = int(inptverif("Age (In years)"))
+                typ_chk = True
+            except ValueError:
+                print("Age should be a Whole Number, Please enter valid info.")
+                typ_chk = False
         s_ph = inptverif("Phone number")
         s_email = inptverif("Email ID")
 
@@ -71,6 +78,7 @@ if __name__ == '__main__':
             chk = lwrcase(chk)
             if chk == "y":
                 entry2csv(info_list)
+                print("\nEntry Uploaded!\n")
                 # condition to ask next entry
                 try_info = False
                 while(not try_info):
